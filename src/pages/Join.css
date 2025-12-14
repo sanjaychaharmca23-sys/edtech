@@ -1,0 +1,218 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.join-page {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+}
+
+.join-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.join-header {
+  background: linear-gradient(135deg, #5a4efc, #6a60ff);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.join-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.join-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.join-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  gap: 30px;
+}
+
+.join-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #5a4efc;
+  box-shadow: 0 0 0 3px rgba(90, 78, 252, 0.2);
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+  border-color: #5a4efc;
+  background: #f8f9ff;
+}
+
+.payment-option input {
+  width: auto;
+}
+
+.terms-section {
+  margin: 25px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.checkbox-label input {
+  width: auto;
+  margin-top: 4px;
+}
+
+.checkbox-label a {
+  color: #5a4efc;
+  text-decoration: none;
+}
+
+.checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+.join-submit-button {
+  width: 100%;
+  background: linear-gradient(135deg, #20bf6b, #0abb92);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(32, 191, 107, 0.3);
+}
+
+.join-submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(32, 191, 107, 0.4);
+}
+
+.benefits-section {
+  flex: 1;
+  min-width: 300px;
+  background: #f8f9ff;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.benefits-section h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.benefits-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.benefits-section li {
+  padding: 12px 0 12px 30px;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+
+.benefits-section li:last-child {
+  border-bottom: none;
+}
+
+.benefits-section li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #20bf6b, #0abb92);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .join-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .join-header {
+    padding: 20px;
+  }
+  
+  .join-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .join-header p {
+    font-size: 1rem;
+  }
+  
+  .payment-options {
+    gap: 10px;
+  }
+  
+  .payment-option {
+    padding: 10px;
+  }
+}

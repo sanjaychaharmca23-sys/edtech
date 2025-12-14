@@ -1,0 +1,765 @@
+.student-dashboard {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #2c3e50 0%, #1a2530 100%);
+  color: white;
+  padding: 20px 0;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.logo {
+  padding: 0 20px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sidebar-nav {
+  padding: 0 15px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  width: 24px;
+  text-align: center;
+}
+
+.nav-label {
+  font-size: 1.1rem;
+}
+
+/* Main Content Styles */
+.dashboard-main {
+  flex: 1;
+  margin-left: 280px;
+  padding: 30px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.time-range-selector {
+  padding: 10px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.time-range-selector:hover {
+  border-color: #667eea;
+}
+
+.refresh-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.refresh-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Stats Section */
+.stats-section {
+  margin-bottom: 30px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.stat-card.primary::before {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stat-card.warning::before {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.stat-card.success::before {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.stat-card.info::before {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.stat-content {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.stat-trend {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.stat-trend.positive {
+  color: #28a745;
+}
+
+/* Analytics Section */
+.analytics-section {
+  margin-bottom: 30px;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 25px;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #2c3e50;
+}
+
+.chart-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.chart-action-btn {
+  padding: 8px 15px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chart-action-btn:hover {
+  background: #e9ecef;
+  color: #333;
+}
+
+/* Timeline Chart */
+.timeline-chart {
+  height: 250px;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 0;
+}
+
+.timeline-bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+
+.timeline-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.bar-fill {
+  width: 40px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: 0;
+}
+
+.bar-fill:hover {
+  opacity: 0.8;
+}
+
+.bar-label {
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.date {
+  color: #666;
+  font-weight: 500;
+}
+
+.students {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Distribution Chart */
+.distribution-chart {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.pie-chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pie-segment {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.segment-label {
+  position: absolute;
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.distribution-legend {
+  flex: 1;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+  background: #f8f9fa;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.legend-text {
+  flex: 1;
+}
+
+.legend-course {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 3px;
+}
+
+.legend-stats {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Activity Section */
+.activity-section {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.view-all-btn {
+  padding: 10px 20px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: #e9ecef;
+  color: #333;
+}
+
+.recent-enrollments {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.enrollment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.enrollment-item:last-child {
+  border-bottom: none;
+}
+
+.enrollment-item:hover {
+  background: #f8f9fa;
+}
+
+.student-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.student-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.student-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 3px;
+}
+
+.course-name {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.enrollment-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.amount {
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.time {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status.completed {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.status.pending {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+/* Timeline Section */
+.timeline-section {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 8px 15px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.detailed-timeline {
+  margin-top: 25px;
+}
+
+.timeline-entry {
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.timeline-entry:last-child {
+  border-bottom: none;
+}
+
+.timeline-marker {
+  margin-right: 20px;
+}
+
+.marker-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.marker-dot.completed {
+  background: #28a745;
+}
+
+.marker-dot.pending {
+  background: #ffc107;
+}
+
+.marker-dot::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 7px;
+  width: 2px;
+  height: 60px;
+  background: #e0e0e0;
+}
+
+.timeline-entry:last-child .marker-dot::after {
+  display: none;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.entry-date {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.entry-time {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.entry-details {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+.students-count,
+.amount-earned {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.entry-status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.entry-status.completed {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.entry-status.pending {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .distribution-chart {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .pie-chart {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-sidebar {
+    width: 80px;
+  }
+  
+  .logo h2,
+  .nav-label {
+    display: none;
+  }
+  
+  .nav-item {
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .nav-icon {
+    margin-right: 0;
+    font-size: 1.5rem;
+  }
+  
+  .dashboard-main {
+    margin-left: 80px;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 20px 15px;
+    margin-left: 80px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .enrollment-details {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  
+  .entry-details {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-controls {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+  
+  .dashboard-main {
+    margin-left: 0;
+    padding: 15px 10px;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .timeline-bars {
+    gap: 5px;
+  }
+  
+  .bar-fill {
+    width: 25px;
+  }
+}
